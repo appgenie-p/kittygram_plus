@@ -1,0 +1,43 @@
+
+GET http://127.0.0.1:8000/owners/
+
+###
+POST http://127.0.0.1:8000/owners/ 
+Content-Type: application/json
+
+{
+    "first_name": "Theodor Albeit",
+    "last_name": "Hrushevich"
+}
+
+###
+GET http://127.0.0.1:8000/cats/
+
+###
+GET http://127.0.0.1:8000/cats/1
+
+###
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Хворюшка",
+    "color": "Пегая",
+    "birth_year": "2021",
+    "owner": "1",
+    "achievements": [
+        {"name": "Поймал мышь"},
+        {"name": "Разбил вазу"}
+    ]
+}
+
+###
+POST http://127.0.0.1:8000/cats/
+Content-Type: application/json
+
+{
+    "name": "Левий Потапыч",
+    "color": "Стеганый",
+    "birth_year": "2018",
+    "owner": "1"
+}
