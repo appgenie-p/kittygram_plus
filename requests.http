@@ -14,20 +14,20 @@ Content-Type: application/json
 GET http://127.0.0.1:8000/cats/
 
 ###
-GET http://127.0.0.1:8000/cats/1
+GET http://127.0.0.1:8000/cats/7
 
 ###
 POST http://127.0.0.1:8000/cats/
 Content-Type: application/json
 
 {
-    "name": "Хворюшка",
-    "color": "Пегая",
-    "birth_year": "2021",
-    "owner": "1",
+    "name": "Снежок11",
+    "color": "White",
+    "birth_year": "2020",
+    "owner": "2",
     "achievements": [
-        {"name": "Поймал мышь"},
-        {"name": "Разбил вазу"}
+        {"achievement_name": "Поймал мышь"},
+        {"achievement_name": "Разбил вазу"}
     ]
 }
 
