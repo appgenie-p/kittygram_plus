@@ -23,8 +23,7 @@ class CatSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         if 'achievements' not in self.initial_data:
-            cat = Cat.objects.create(**validated_data)
-            return cat
+            return Cat.objects.create(**validated_data)
 
         achievements = validated_data.pop('achievements')
         cat = Cat.objects.create(**validated_data)
