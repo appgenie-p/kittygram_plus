@@ -11,10 +11,52 @@ Content-Type: application/json
 }
 
 ###
+POST http://127.0.0.1:8000/api-token-auth/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+###
+POST http://127.0.0.1:8000/auth/users/
+Content-Type: application/json
+
+{
+    "username": "admin1",
+    "password": "Qwerty!QAZ"
+}
+###
+POST http://127.0.0.1:8000/auth/jwt/create/
+Content-Type: application/json
+
+{
+    "username": "admin1",
+    "password": "Qwerty!QAZ"
+}
+###
+POST http://127.0.0.1:8000/auth/jwt/create/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNTI0NTE5LCJqdGkiOiI3MmRkZjljMGI3Mzc0MTIzYTRlYjA5NzJjZGZmNWVhNCIsInVzZXJfaWQiOjJ9.BKkVPuF2PJBMd5qqHDWlXIZIqyJykOrG-3aqjJs_eS8
+
+{
+    "username": "admin1",
+    "password": "Qwerty!QAZ"
+}
+
+###
+GET http://127.0.0.1:8000/mycats/7
+###
+GET http://127.0.0.1:8000/cats/
+Authorization: Token 1212335633b9467ea2d2f7e1e30eb86c06c127da
+###
 GET http://127.0.0.1:8000/cats/
 
 ###
 GET http://127.0.0.1:8000/cats/7
+
+###
+GET http://127.0.0.1:8000/cats/recent-white-cats/
 
 ###
 POST http://127.0.0.1:8000/cats/

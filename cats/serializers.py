@@ -1,7 +1,7 @@
 import datetime as dt
 import webcolors
 
-from rest_framework import serializers
+from rest_framework import serializers, mixins, viewsets
 
 from .models import Achievement, AchievementCat, Cat, Owner, CHOICES
 
@@ -35,7 +35,9 @@ class CatSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cat
-        fields = ("id", "name", "color", "birth_year", "owner", "achievements", "age")
+        fields = (
+            "id", "name", "color", "birth_year", "owner", "achievements", "age"
+        )
 
     def create(self, validated_data):
         if "achievements" not in self.initial_data:
@@ -45,14 +47,21 @@ class CatSerializer(serializers.ModelSerializer):
         cat = Cat.objects.create(**validated_data)
         for achievement in achievements:
             current_achievement, status = Achievement.objects.get_or_create(
-                **achievement
-            )
-            AchievementCat.objects.create(achievement=current_achievement, cat=cat)
+                **achievement)
+            AchievementCat.objects.create(
+                achievement=current_achievement, cat=cat)
         return cat
 
     def get_age(self, obj):
         return dt.datetime.now().year - obj.birth_year
-        
+
+
+class CatListSerializer(serializers.ModelSerializer):
+    color = serializers.ChoiceField(choices=CHOICES)
+    
+    class Meta:
+        model = Cat
+        fields = ('id', 'name', 'color')
 
 
 class OwnerSerializer(serializers.ModelSerializer):
