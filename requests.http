@@ -63,13 +63,13 @@ POST http://127.0.0.1:8000/cats/
 Content-Type: application/json
 
 {
-    "name": "Снежок11",
-    "color": "White",
-    "birth_year": "2020",
-    "owner": "2",
+    "name": "Снежок12",
+    "color": "Black",
+    "birth_year": "2019",
+    "owner": "3",
     "achievements": [
-        {"achievement_name": "Поймал мышь"},
-        {"achievement_name": "Разбил вазу"}
+        {"achievement_name": "Поймал змею"},
+        {"achievement_name": "Украл машину"}
     ]
 }
 
